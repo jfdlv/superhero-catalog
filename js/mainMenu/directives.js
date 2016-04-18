@@ -9,8 +9,7 @@ angular.module('mainMenu')
 		controller: function($scope,$element,$state){
 				
 					$scope.onBrandClick = function(){
-						superHeroData.setSelectedBrand($scope.brand);
-						$state.go('/superHeros');
+						$state.go('/superHeros',{brand: $scope.brand});
 					}
 		}
 

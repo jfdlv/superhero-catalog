@@ -3,6 +3,9 @@ angular.module('superHeros',[])
   $stateProvider
     .state('/superHeros', {
       url: "/superHeros",
+      params: {
+        brand: null
+	  },
       templateUrl: "js/superHeros/views/superHeros.html",
       controller: "SuperHerosCtrl"
     })

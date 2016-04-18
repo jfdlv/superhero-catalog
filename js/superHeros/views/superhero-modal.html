@@ -1,34 +1,41 @@
 <div class="modal-header text-center">
     <h3 class="modal-title">{{heroData.name}}</h3>
 </div>
-<div class="modal-body">
-    <table class="table table-striped">
-        <tr>
-            <th>
-                Real Name
-            </th>
-            <td>
-                {{heroData.realName}}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Ocupation
-            </th>
-            <td>
-                {{heroData.ocupation}}
-            </td>
-        </tr>
-        <tr>
-            <th>
-                Origins Story
-            </th>
-            <td>
-                {{heroData.origins}}
-            </td>
-        </tr>
-    </table>
-</div>
+<!-- Body -->
+<table class="table table-striped">
+    <tr>
+        <th>
+            Real Name
+        </th>
+        <td>
+            {{heroData.realName}}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Ocupation
+        </th>
+        <td>
+            {{heroData.ocupation}}
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Origins Story
+        </th>
+        <td>
+            {{heroData.origins}}
+        </td>
+    </tr>
+</table>
+<!-- End Body -->
 <div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="close()">Close</button>
+    <div class="row">
+        <div class="col-md-6 text-left">
+            <button class="btn btn-primary" type="button" ng-click="milestones() ">Milestones</button>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-danger" type="button" ng-click="close()">Close</button>
+        </div>
+    </div>      
 </div>

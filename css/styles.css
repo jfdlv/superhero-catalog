@@ -9,3 +9,7 @@
 .panel-body-brandcnt{
 	max-height: 800px;overflow-y: scroll;
 }
+.heroDataContainer{
+	max-width: 50%;
+    margin-left: 25%;
+}

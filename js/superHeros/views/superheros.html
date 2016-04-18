@@ -2,7 +2,7 @@
 <div class="row text-center">
 	<H1 class='text-primary'>{{brand}}</H1>
 </div>
-<div class="row-fluid">
+<div class="row-fluid" ng-hide="showHideContainers()">
 	<div class="panel panel-default panel-brandcnt">
 		<div class="panel-body panel-body-brandcnt ">
 			  	<div class="panel panel-default" ng-click="open('small',superHero)" ng-repeat='superHero in superHeros'>
@@ -12,4 +12,25 @@
 				</div>
 		</div>
 	</div>
+</div>
+<div class="heroDataContainer" ng-show="showHideContainers()">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+		<div class="row">
+			<div class="col-md-6">
+				<H4 class="text-primary text-capitalize">{{superHero}} Milestones</H4>
+			</div>
+			<div class="col-md-6 text-right">
+				<button class="btn btn-primary" type="button" ng-click="">Back</button>
+			</div>
+		</div>
+  	 </div>
+	    	<table class="table">
+				<tr ng-repeat='milestone in milestones'>
+					<th class="text-capitalize">{{milestone.title}}</th>
+					<td>{{milestone.summary}}</td>
+				</tr>
+			</table>
+	</div>
+</div>
 </div>
