@@ -1,0 +1,11 @@
+.brand-cnt{
+	max-width: 80%;
+    margin-left: 10%;
+}
+.panel-brandcnt{
+	max-width: 50%;
+    margin-left: 25%;
+}
+.panel-body-brandcnt{
+	max-height: 800px;overflow-y: scroll;
+}

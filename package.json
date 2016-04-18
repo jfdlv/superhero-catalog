@@ -1,0 +1,14 @@
+{
+  "name": "superhero-catalog",
+  "version": "1.0.0",
+  "description": "A catalog for super hero",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jfdlv",
+  "license": "ISC",
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1"
+  }
+}
