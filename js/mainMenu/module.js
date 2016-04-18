@@ -1,7 +1,9 @@
 angular.module('mainMenu', [])
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'js/mainMenu/views/mainMenu.html',
-    controller: 'MainMenuCtrl'
-  });
+.config(['$stateProvider', function($stateProvider) {
+  $stateProvider
+    .state('/', {
+      url: "/",
+      templateUrl: "js/mainMenu/views/mainMenu.html",
+      controller: "MainMenuCtrl"
+    })
 }])

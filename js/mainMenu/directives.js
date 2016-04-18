@@ -6,11 +6,11 @@ angular.module('mainMenu')
       		'brand': '=brand',
     	},
 		templateUrl: 'js/mainMenu/views/brand-container-tpl.html',
-		controller: function($scope,$element,$location){
+		controller: function($scope,$element,$state){
 				
 					$scope.onBrandClick = function(){
 						superHeroData.setSelectedBrand($scope.brand);
-						$location.path('/superheros');
+						$state.go('/superHeros');
 					}
 		}
 

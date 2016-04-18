@@ -1,10 +1,10 @@
 angular.module('superheroApp', [
-  'ngRoute',
+  'ui.router',
   'ui.bootstrap',
   'mainMenu',
   'superHeros',
   'commons'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/'});
+config(['$urlRouterProvider', function($urlRouterProvider) {
+  $urlRouterProvider.otherwise("/");
 }]);
