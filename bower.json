@@ -19,6 +19,9 @@
     "angular": "^1.5.4",
     "angular-route": "^1.5.3",
     "bootstrap": "^3.3.6",
-    "angular-ui-router": "^0.2.18"
+    "angular-ui-router": "^0.2.18",
+    "angular-animate": "^1.5.5",
+    "angularfire": "^1.2.0",
+    "firebase": "^2.4.2"
   }
 }

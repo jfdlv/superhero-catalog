@@ -2,26 +2,69 @@
 <div class="row text-center">
 	<H1 class='text-primary'>{{brand}}</H1>
 </div>
-<div class="row-fluid" ng-hide="showHideContainers()">
+<div class="row-fluid ">
 	<div class="panel panel-default panel-brandcnt">
-		<div class="panel-body panel-body-brandcnt ">
-			  	<div class="panel panel-default" ng-click="open('small',superHero)" ng-repeat='superHero in superHeros'>
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-md-6 text-left">
+					<h4 class='text-primary text-capitalize'>{{superHero}}</h4>
+				</div>
+				<div class="col-md-6 text-right">
+					<button class="btn btn-primary" type="button" ng-click="back()">Back</button>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body panel-body-brandcnt" ng-hide='existsHeroData()'>
+			  	<div class="panel panel-default" ng-click="showSuperHeroInfo(superHero)" ng-repeat='superHero in superHeros'>
 					<div class="panel-body text-center">
 						{{superHero}}
 					</div>
 				</div>
 		</div>
+		<table class="table table-bordered" ng-show='existsHeroData()'>
+		    <tr>
+		        <th>
+		            Real Name
+		        </th>
+		        <td>
+		            {{heroData.realName}}
+		        </td>
+		    </tr>
+		    <tr>
+		        <th>
+		            Ocupation
+		        </th>
+		        <td>
+		            {{heroData.ocupation}}
+		        </td>
+		    </tr>
+		    <tr>
+		        <th>
+		            Origins Story
+		        </th>
+		        <td>
+		            {{heroData.origins}}
+		        </td>
+		    </tr>
+		</table>
+		<div class="panel-footer" ng-show='existsHeroData()'>
+		    <div class="row">
+		        <div class="col-md-12 text-right" ng-hide='showMilestones()'>
+		            <button class="btn btn-warning" type="button" ng-click="getMilestones() ">Milestones</button>
+		        </div>
+		        <div class="col-md-12 text-right" ng-show='showMilestones()'>
+		            <button class="btn btn-warning" type="button" ng-click="hideMilestones() ">Hide milestones</button>
+		        </div>
+		    </div>      
+		</div>
 	</div>
 </div>
-<div class="heroDataContainer" ng-show="showHideContainers()">
+<div class="heroDataContainer" ng-show="showMilestones()">
 	<div class="panel panel-default">
 	  <div class="panel-heading">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-12  text-center">
 				<H4 class="text-primary text-capitalize">{{superHero}} Milestones</H4>
-			</div>
-			<div class="col-md-6 text-right">
-				<button class="btn btn-primary" type="button" ng-click="">Back</button>
 			</div>
 		</div>
   	 </div>
@@ -34,3 +77,4 @@
 	</div>
 </div>
 </div>
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae esse itaque sit! Quasi tempora similique, ratione cum assumenda explicabo sed!

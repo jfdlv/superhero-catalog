@@ -1,6 +1,7 @@
 angular.module('superheroApp', [
   'ui.router',
   'ui.bootstrap',
+  'firebase',
   'mainMenu',
   'superHeros',
   'commons'

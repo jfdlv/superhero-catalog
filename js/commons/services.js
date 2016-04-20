@@ -1,5 +1,5 @@
 angular.module('commons')
-.service('superHeroData', function () {
+.service('superHeroData', function ($firebase) {
         var property = 'First';
         var brands = {
 			"DC":['batman','superman'],
@@ -43,6 +43,11 @@ angular.module('commons')
             }
         }
 		var selectedBrand = '';
+
+        var ref = new Firebase("https://superhero-catalog.firebaseio.com/superhero-catalog");
+        ref.startAt('Brands').endAt('Brands').once("value", function(snap) {
+            console.log(snap.val());
+        });
 
         return {
             getBrands: function () {
