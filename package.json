@@ -9,6 +9,6 @@
   "author": "jfdlv",
   "license": "ISC",
   "scripts": {
-    "start": "http-server -a localhost -p 8000 -c-1"
+    "start": "http-server -a 0.0.0.0 -p 8000 -c-1"
   }
 }

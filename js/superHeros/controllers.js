@@ -1,7 +1,11 @@
 angular.module('superHeros')
 .controller('SuperHerosCtrl',['$scope','$location','$uibModal','$stateParams','superHeroData','$state',function($scope,$location,$uibModal,$stateParams,superHeroData,$state){
 				$scope.brand = $stateParams.brand
-				$scope.superHeros= superHeroData.getSuperHeros($scope.brand);
+				// $scope.superHeros= superHeroData.getSuperHeros($scope.brand);
+				superHeroData.getSuperHeros($scope.brand,function(value){
+					$scope.superHeros = value;
+					$scope.$apply()
+				})
 				$scope.milestones = null;
 				$scope.showMilestones = function(){
 					if($scope.milestones){
@@ -19,34 +23,18 @@ angular.module('superHeros')
 
 				$scope.showSuperHeroInfo = function (superHero) {
 					$scope.superHero = superHero;
-					$scope.heroData = superHeroData.getSelectedHero(superHero);
-
-
-				 //    var modalInstance = $uibModal.open({
-				 //      animation: $scope.animationsEnabled,
-				 //      templateUrl: 'js/superHeros/views/superhero-modal.html',
-				 //      controller: 'SuperHeroModalCtrl',
-				 //      size: size,
-				 //      resolve: {
-				 //        superHero: function () {
-				 //          return superHero;
-				 //        }
-				 //      }
-				 //    });
-
-				 //    modalInstance.result.then(function (milestones) {
-				 //      $scope.milestones = milestones;
-				 //      console.log($scope.milestones);
-				 //    }, function () {
-				 //      console.log('Modal dismissed at: ' + new Date());
-				 //    });
+					superHeroData.getSelectedHero(superHero,function(value){
+						$scope.heroData = value;
+						$scope.$apply();
+					});
 			  	};
 
 		  		$scope.getMilestones = function () {
 		  			console.log($scope.superHero);
-				  	$scope.milestones = superHeroData.getHeroMileStones($scope.superHero);
-				  	console.log($scope.milestones);
-				  	
+				  	superHeroData.getHeroMileStones($scope.superHero,function(value){
+				  		$scope.milestones = value;
+				  		$scope.$apply();
+				  	});
 			    };
 
 			    $scope.hideMilestones = function(){
