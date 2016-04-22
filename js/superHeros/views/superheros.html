@@ -6,10 +6,10 @@
 	<div class="panel panel-default panel-brandcnt">
 		<div class="panel-heading">
 			<div class="row">
-				<div class="col-md-6 text-left">
+				<div class="col-md-6 text-left" ng-show='existsHeroData()'>
 					<h4 class='text-primary text-capitalize'>{{superHero}}</h4>
 				</div>
-				<div class="col-md-6 text-right">
+				<div ng-class="changeBackButtonClass()">
 					<button class="btn btn-primary" type="button" ng-click="back()">Back</button>
 				</div>
 			</div>
@@ -20,6 +20,11 @@
 						{{superHero}}
 					</div>
 				</div>
+		</div>
+		<div class="panel-body panel-body-brandcnt" ng-show='showHeroInfoError'>
+			  	<div class="alert alert-danger">
+			  		<strong>Holy errors batman!</strong> no available information for the selected hero
+			  	</div>
 		</div>
 		<table class="table table-bordered" ng-show='existsHeroData()'>
 		    <tr>
@@ -76,4 +81,9 @@
 			</table>
 	</div>
 </div>
+</div>
+<div class="heroDataContainer" ng-show="showMilestonesError">
+	<div class="alert alert-danger">
+  		<strong>Holy errors batman!</strong> there are no registered milestones for the selected superhero.
+  	</div>
 </div>

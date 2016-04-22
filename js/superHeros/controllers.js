@@ -1,6 +1,8 @@
 angular.module('superHeros')
 .controller('SuperHerosCtrl',['$scope','$location','$uibModal','$stateParams','superHeroData','$state',function($scope,$location,$uibModal,$stateParams,superHeroData,$state){
 				$scope.brand = $stateParams.brand
+				$scope.showHeroInfoError = false;
+				$scope.showMilestonesError = false;
 				// $scope.superHeros= superHeroData.getSuperHeros($scope.brand);
 				superHeroData.getSuperHeros($scope.brand,function(value){
 					$scope.superHeros = value;
@@ -19,12 +21,23 @@ angular.module('superHeros')
 						return true;
 					}
 					return false;
-				}
+				};
+
+				$scope.changeBackButtonClass = function(){
+					if(!$scope.heroData){
+						console.log('entra');
+						return 'col-md-12 text-right'
+					}
+
+					return 'col-md-6 text-right'
+				};
 
 				$scope.showSuperHeroInfo = function (superHero) {
 					$scope.superHero = superHero;
 					superHeroData.getSelectedHero(superHero,function(value){
-						$scope.heroData = value;
+						$scope.heroData = value ? value : null;
+						$scope.superHero = value ? $scope.superHero : null;
+						$scope.showHeroInfoError = value ? false : true;
 						$scope.$apply();
 					});
 			  	};
@@ -33,6 +46,7 @@ angular.module('superHeros')
 		  			console.log($scope.superHero);
 				  	superHeroData.getHeroMileStones($scope.superHero,function(value){
 				  		$scope.milestones = value;
+				  		$scope.showMilestonesError = value ? false : true;
 				  		$scope.$apply();
 				  	});
 			    };
@@ -42,14 +56,19 @@ angular.module('superHeros')
 			    };
 
 			  	$scope.back = function() { 
+			  		console.log("$scope.milestones:" + $scope.milestones);
+			  		console.log("$scope.heroData:" + $scope.heroData);
+			  		console.log("$scope.superHero:" + $scope.superHero);
 			  		if($scope.milestones || $scope.heroData || $scope.superHero)
 			  		{
 			  			$scope.milestones = null;
 			  			$scope.heroData = null;	
 			  			$scope.superHero = null;
+			  			$scope.showMilestonesError = false;
 			  		}
 			  		else
 			  		{
+			  			console.log('todos null');
 			  			$state.go('/');
 			  		}
 			  	}
