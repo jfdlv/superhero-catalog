@@ -1,8 +1,15 @@
 angular.module('commons')
-.service('superHeroData', function ($firebase) {
+.service('superHeroData',['$firebase','$firebaseObject', function ($firebase, $firebaseObject) {
 
     
         var ref = new Firebase("https://superhero-catalog.firebaseio.com");
+        var charactersInfoRef = ref.child('characters');
+        var charsInfo = {};
+
+        (function init(){
+             charsInfo = $firebaseObject(charactersInfoRef);
+        })();
+        
 
         function getAllBrands (callback){
             ref.child('Brands').once("value", function(snap) {
@@ -26,7 +33,30 @@ angular.module('commons')
             });
         }
 
+        function getAllCharacters (){
+
+                ref.child('Brands').once("value",function(snap){
+                    var characters = {};
+                    console.log(charsInfo);
+                    snap.forEach(function(brandSnap){
+                        brandSnap.forEach(function(shSnap){
+                            console.log(shSnap.val());
+                            var val = shSnap.val();
+                            console.log(Object.keys(charsInfo));
+                            characters[shSnap.val()] = charsInfo[shSnap.val()];
+                        });
+                    });
+                    console.log(characters);
+                });
+        }
+
         function getSuperHeros(brand,callback){
+            ref.child('Brands').child(brand).once("value",function(snap){
+                callback(snap.val());
+            })
+        }
+
+        function getBrandCharacters(brand){
             ref.child('Brands').child(brand).once("value",function(snap){
                 callback(snap.val());
             })
@@ -72,7 +102,13 @@ angular.module('commons')
                 getAllSuperHeros(function(value){
                     callback(value);
                 })
+            },
+            getAllCharacters: function(){
+                getAllCharacters();
+            },
+            showCharsInfo: function(){
+                showCharsInfo();
             }
 
         };
-});
+}]);

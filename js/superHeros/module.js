@@ -6,7 +6,7 @@ angular.module('superHeros',[])
       params: {
         brand: null
 	  },
-      templateUrl: "js/superHeros/views/superHeros.html",
+      templateUrl: "js/superHeros/views/superheros.html",
       controller: "SuperHerosCtrl"
     })
 }]);

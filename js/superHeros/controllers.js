@@ -4,6 +4,7 @@ angular.module('superHeros')
 				$scope.showHeroInfoError = false;
 				$scope.showMilestonesError = false;
 				$scope.searchText = "";
+				$scope.herosOrVillains = -1;
 				// $scope.superHeros= superHeroData.getSuperHeros($scope.brand);
 				console.log($scope.brand);
 				if($scope.brand){
@@ -84,4 +85,4 @@ angular.module('superHeros')
 	  	var milestones = superHeroData.getHeroMileStones(superHero);
 	    $uibModalInstance.close(milestones);
 	  };
-}]);
+}]);	
