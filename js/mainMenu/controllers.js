@@ -6,4 +6,6 @@ angular.module('mainMenu')
 		$scope.brands = value;
 		$scope.$apply();
 	});
+
+	$scope.searchText = "";
 }])

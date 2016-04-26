@@ -3,6 +3,7 @@ angular.module('superHeros')
 				$scope.brand = $stateParams.brand
 				$scope.showHeroInfoError = false;
 				$scope.showMilestonesError = false;
+				$scope.searchText = "";
 				// $scope.superHeros= superHeroData.getSuperHeros($scope.brand);
 				superHeroData.getSuperHeros($scope.brand,function(value){
 					$scope.superHeros = value;
@@ -21,15 +22,6 @@ angular.module('superHeros')
 						return true;
 					}
 					return false;
-				};
-
-				$scope.changeBackButtonClass = function(){
-					if(!$scope.heroData){
-						console.log('entra');
-						return 'col-md-12 text-right'
-					}
-
-					return 'col-md-6 text-right'
 				};
 
 				$scope.showSuperHeroInfo = function (superHero) {

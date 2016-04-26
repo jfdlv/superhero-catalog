@@ -9,13 +9,16 @@
 				<div class="col-md-6 text-left" ng-show='existsHeroData()'>
 					<h4 class='text-primary text-capitalize'>{{superHero}}</h4>
 				</div>
-				<div ng-class="changeBackButtonClass()">
+				<div class="col-md-6 text-left" ng-hide="existsHeroData()">
+					<input type="text" class="form-control" placeholder="Find a SuperHero" ng-model='searchText'>
+				</div>
+				<div class="col-md-6 text-right">
 					<button class="btn btn-primary" type="button" ng-click="back()">Back</button>
 				</div>
 			</div>
 		</div>
 		<div class="panel-body panel-body-brandcnt" ng-hide='existsHeroData()'>
-			  	<div class="panel panel-default" ng-click="showSuperHeroInfo(superHero)" ng-repeat='superHero in superHeros'>
+			  	<div class="panel panel-default" ng-click="showSuperHeroInfo(superHero)" ng-repeat='superHero in superHeros | filter:searchText'>
 					<div class="panel-body text-center">
 						{{superHero}}
 					</div>
