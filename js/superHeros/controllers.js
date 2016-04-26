@@ -5,10 +5,20 @@ angular.module('superHeros')
 				$scope.showMilestonesError = false;
 				$scope.searchText = "";
 				// $scope.superHeros= superHeroData.getSuperHeros($scope.brand);
-				superHeroData.getSuperHeros($scope.brand,function(value){
-					$scope.superHeros = value;
-					$scope.$apply()
-				})
+				console.log($scope.brand);
+				if($scope.brand){
+					superHeroData.getSuperHeros($scope.brand,function(value){
+						$scope.superHeros = value;
+						$scope.$apply()
+					});
+				}
+				else{
+					superHeroData.getAllSuperHeros(function(value){
+						$scope.superHeros = value;
+						$scope.$apply();
+					});
+				}
+				
 				$scope.milestones = null;
 				$scope.showMilestones = function(){
 					if($scope.milestones){

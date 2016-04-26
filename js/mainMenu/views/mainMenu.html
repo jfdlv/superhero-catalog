@@ -5,8 +5,15 @@
 <div class="row-fluid">
 	<div class="panel panel-default panel-brandcnt">
 		<div class="panel-heading">
-			
-				<input type="text" class="form-control" placeholder="Find a Brand" ng-model='searchText'>
+			<div class="row">
+				
+				<div class="col-md-6">
+					<input type="text" class="form-control" placeholder="Find a Brand" ng-model='searchText'>
+				</div>
+				<div class="col-md-6 text-right">
+					<button class="btn btn-primary" ng-click='findBySH()'>Search by superhero</button>
+				</div>
+			</div>
 		</div>		
 		<div class="panel-body">
 			  <brand-container ng-repeat='brand in brands | filter:searchText' brand='brand'></brand-container>
